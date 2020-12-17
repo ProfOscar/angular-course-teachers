@@ -1,1 +1,6 @@
-<h4 [ngStyle]="{ backgroundColor: teacher.gender=='F' ? 'pink' : 'cyan'}">{{ teacher.name }} - {{ teacher.subject }}</h4>
+<!-- <h4 [ngStyle]="{ backgroundColor: teacher.gender=='F' ? 'pink' : 'cyan'}">{{ teacher.name }} - {{ teacher.subject }}</h4> -->
+<p [ngClass]="{ 'female': teacher.gender=='F',
+                'male': teacher.gender=='M',
+                'underlined': teacher.subject=='Hardware'}">
+  {{ teacher.name }} - {{ teacher.subject }}
+</p>
