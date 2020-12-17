@@ -1,1 +1,1 @@
-<h4>my new teacher component works!</h4>
+<h4 [ngStyle]="{ backgroundColor: teacher.gender=='F' ? 'pink' : 'cyan'}">{{ teacher.name }} - {{ teacher.subject }}</h4>
