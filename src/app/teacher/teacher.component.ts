@@ -30,7 +30,7 @@ export class TeacherComponent {
     'Web & JavaScript'
   ]
 
-  teacher = {};
+  teacher:any = { };
 
   constructor() {
     let num = Math.floor(Math.random() * this.teacherList.length);
