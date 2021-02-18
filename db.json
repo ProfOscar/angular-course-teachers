@@ -1,0 +1,22 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Spaghetti alla chitarra",
+      "description": "Un particolare tipo di pasta che...",
+      "imagePath": "https://www.lucianopignataro.it/wp-content/uploads/2018/10/Il-Boccon-Divino-Spaghetti-alla-chitarra-con-guanciale-di-nero-casertano-e-cipolla-di-Alife.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "Lasagne alla bolognese",
+      "description": "Tipico piatto della domenida in Italia centrale...",
+      "imagePath": "https://www.tribugolosa.com/media/lasagne-622x466_crop.jpg/rh/lasagne-alla-bolognese.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Tiramisù",
+      "description": "Dolce a base di mascarpone e...",
+      "imagePath": "https://static.cookist.it/wp-content/uploads/sites/21/2019/01/istock-928035242-638x425.jpg"
+    }
+  ]
+}
