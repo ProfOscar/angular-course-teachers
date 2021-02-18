@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { RecipesService } from 'src/app/recipes.service';
 import { RecipeModel } from '../recipe.model';
 
 @Component({
@@ -9,15 +10,11 @@ import { RecipeModel } from '../recipe.model';
 export class RecipeListComponent implements OnInit {
   @Output() recipeSelectedInList = new EventEmitter<RecipeModel>();
 
-  recipes: RecipeModel[] = [
-    new RecipeModel("Spaghetti alla chitarra", "Un particolare tipo di pasta che...", "https://www.lucianopignataro.it/wp-content/uploads/2018/10/Il-Boccon-Divino-Spaghetti-alla-chitarra-con-guanciale-di-nero-casertano-e-cipolla-di-Alife.jpeg"),
-    new RecipeModel("Lasagne alla bolognese", "Tipico piatto della domenida in Italia centrale...", "https://www.tribugolosa.com/media/lasagne-622x466_crop.jpg/rh/lasagne-alla-bolognese.jpg"),
-    new RecipeModel("Tiramisù", "Dolce a base di mascarpone e...", "https://static.cookist.it/wp-content/uploads/sites/21/2019/01/istock-928035242-638x425.jpg")
-  ];
-
+  recipes: RecipeModel[] = [];
   selectedRecipe: RecipeModel;
 
-  constructor() {
+  constructor(private recipesService: RecipesService) {
+    this.recipes = recipesService.recipes;
     this.selectedRecipe = this.recipes[0];
   }
 
