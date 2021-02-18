@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RecipeModel } from '../recipe.model';
 
 @Component({
@@ -7,6 +7,7 @@ import { RecipeModel } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
+  @Output() recipeSelectedInList = new EventEmitter<RecipeModel>();
 
   recipes: RecipeModel[] = [
     new RecipeModel("Spaghetti alla chitarra", "Un particolare tipo di pasta che...", "https://www.lucianopignataro.it/wp-content/uploads/2018/10/Il-Boccon-Divino-Spaghetti-alla-chitarra-con-guanciale-di-nero-casertano-e-cipolla-di-Alife.jpeg"),
@@ -21,6 +22,10 @@ export class RecipeListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onRecipeSelected(recipe: RecipeModel) {
+    this.recipeSelectedInList.emit(recipe);
   }
 
 }
