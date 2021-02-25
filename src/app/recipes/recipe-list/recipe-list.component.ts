@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { DataStorageService } from '../../shared/data-storage.service';
 import { RecipeModel } from '../recipe.model';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -10,22 +10,11 @@ import { RecipeModel } from '../recipe.model';
 export class RecipeListComponent implements OnInit {
   @Output() recipeSelectedInList = new EventEmitter<RecipeModel>();
 
-  recipes: RecipeModel[] = [];
-  selectedRecipe: RecipeModel;
 
-  constructor(private dataStorageService: DataStorageService) { }
+  constructor(public recipeService: RecipeService) { }
 
   ngOnInit(): void {
-    this.dataStorageService.sendGetRequest('recipes').subscribe(
-      (data: any[]) => {
-        console.log(data);
-        this.recipes = data;
-        this.selectedRecipe = this.recipes[0];
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    )
+    this.recipeService.getRecipes();
   }
 
   onRecipeSelected(recipe: RecipeModel) {
