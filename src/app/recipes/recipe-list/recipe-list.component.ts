@@ -16,11 +16,16 @@ export class RecipeListComponent implements OnInit {
   constructor(private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
-    this.dataStorageService.sendGetRequest('recipes').subscribe((data: any[]) => {
-      console.log(data);
-      this.recipes = data;
-      this.selectedRecipe = this.recipes[0];
-    })
+    this.dataStorageService.sendGetRequest('recipes').subscribe(
+      (data: any[]) => {
+        console.log(data);
+        this.recipes = data;
+        this.selectedRecipe = this.recipes[0];
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    )
   }
 
   onRecipeSelected(recipe: RecipeModel) {
