@@ -17,7 +17,7 @@ export class RecipeService {
       (data: any[]) => {
         console.log(data);
         this.recipes = data;
-        this.selectedRecipe = this.recipes[0];
+        // this.selectedRecipe = this.recipes[0];
       },
       (error: any) => {
         console.log(error);
