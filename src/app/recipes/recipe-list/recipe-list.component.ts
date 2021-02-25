@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { RecipesService } from 'src/app/recipes.service';
+import { DataStorageService } from '../../shared/data-storage.service';
 import { RecipeModel } from '../recipe.model';
 
 @Component({
@@ -13,12 +13,14 @@ export class RecipeListComponent implements OnInit {
   recipes: RecipeModel[] = [];
   selectedRecipe: RecipeModel;
 
-  constructor(private recipesService: RecipesService) {
-    this.recipes = recipesService.recipes;
-    this.selectedRecipe = this.recipes[0];
-  }
+  constructor(private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
+    this.dataStorageService.sendGetRequest('recipes').subscribe((data: any[]) => {
+      console.log(data);
+      this.recipes = data;
+      this.selectedRecipe = this.recipes[0];
+    })
   }
 
   onRecipeSelected(recipe: RecipeModel) {
