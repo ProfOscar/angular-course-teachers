@@ -11,7 +11,9 @@ export class RecipeListComponent implements OnInit {
   constructor(public recipeService: RecipeService) { }
 
   ngOnInit(): void {
-    this.recipeService.getRecipes();
+    if (this.recipeService.recipes.length == 0) {
+      this.recipeService.getRecipes();
+    }
   }
 
 }
